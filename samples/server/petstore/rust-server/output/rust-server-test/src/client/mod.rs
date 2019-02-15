@@ -25,7 +25,6 @@ use std::path::Path;
 use std::sync::Arc;
 use std::str;
 use std::str::FromStr;
-use std::string::ToString;
 
 use mimetypes;
 
@@ -251,7 +250,9 @@ impl<F, C> Api<C> for Client<F> where
     C: Has<XSpanIdString> {
 
     fn dummy_get(&self, context: &C) -> Box<Future<Item=DummyGetResponse, Error=ApiError>> {
-        let mut uri = format!(
+
+
+        let uri = format!(
             "{}/dummy",
             self.base_path
         );
@@ -306,7 +307,9 @@ impl<F, C> Api<C> for Client<F> where
     }
 
     fn dummy_put(&self, param_nested_response: models::InlineObject, context: &C) -> Box<Future<Item=DummyPutResponse, Error=ApiError>> {
-        let mut uri = format!(
+
+
+        let uri = format!(
             "{}/dummy",
             self.base_path
         );
@@ -367,7 +370,9 @@ impl<F, C> Api<C> for Client<F> where
     }
 
     fn file_response_get(&self, context: &C) -> Box<Future<Item=FileResponseGetResponse, Error=ApiError>> {
-        let mut uri = format!(
+
+
+        let uri = format!(
             "{}/file_response",
             self.base_path
         );
@@ -432,7 +437,9 @@ impl<F, C> Api<C> for Client<F> where
     }
 
     fn html_post(&self, param_body: String, context: &C) -> Box<Future<Item=HtmlPostResponse, Error=ApiError>> {
-        let mut uri = format!(
+
+
+        let uri = format!(
             "{}/html",
             self.base_path
         );
@@ -501,7 +508,9 @@ impl<F, C> Api<C> for Client<F> where
     }
 
     fn raw_json_get(&self, context: &C) -> Box<Future<Item=RawJsonGetResponse, Error=ApiError>> {
-        let mut uri = format!(
+
+
+        let uri = format!(
             "{}/raw_json",
             self.base_path
         );
